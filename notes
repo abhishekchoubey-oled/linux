@@ -1,0 +1,13 @@
+Kernel space : memory owned by kernel, protected by access flags.
+CPU can run in previliged or unpreviliged mode. In previliged (kernel) mode it can access all memory where as not in un-previliged(user) mode.
+
+Kernel support for modules is enabled by this config option : CONFIG_MODULES
+
+Q: What happens if a dependency is not met ?
+
+Loading a module at boot time. Config to be created /etc/modules-load.d/modules.conf
+
+When a kernel developer actually writes a driver, they know exactly what
+hardware the driver will support. They are then responsible for feeding the driver with the
+product and vendor IDs of all devices supported by the driver.
+/lib/modules/4.13.0-32-generic/modules.alias :  File that maps a device to its driver.
