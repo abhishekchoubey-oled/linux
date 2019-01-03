@@ -11,3 +11,11 @@ When a kernel developer actually writes a driver, they know exactly what
 hardware the driver will support. They are then responsible for feeding the driver with the
 product and vendor IDs of all devices supported by the driver.
 /lib/modules/4.13.0-32-generic/modules.alias :  File that maps a device to its driver.
+
+depmod : creates modules.dep file which list all kernel module and their dependencies.
+
+udev registers with kernel to get notified when a new device appears.
+Once a new device appears kernel and its device driver is not statically built into kernel, it will need to to be loaded dynamically.
+The kernel notifies device info like (pid, vid, class,
+device class, device subclass, interface, and all other information that may identify a device) to this hot-plug daemon (udev/mdev).
+This hotplug daemon with that information will call the modprobe to resolves deps if any and then get the required driver from module.alias file and load that driver
